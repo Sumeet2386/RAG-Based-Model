@@ -1,0 +1,6 @@
+Here are viodeo chunks conatining start time in seconds and end time in seconds along with text at that time:
+[{"start":161.8,"end":164.1,"text":" So it is treated as a comment."},{"start":72.5,"end":76.0,"text":" And he wrote this text which you can read out by pausing the video."},{"start":156.1,"end":159.8,"text":" To write a comment in Python, you use a hashtag or pound symbol"},{"start":173.6,"end":175.8,"text":" it will be a complete comment."},{"start":486.3,"end":488.3,"text":" Thank you so much for watching this video."},{"start":448.9,"end":451.9,"text":" You can use classes and objects."},{"start":167.8,"end":170.9,"text":" For multi-line comments, you can use triple quotes."},{"start":500.3,"end":502.3,"text":" Thank you for watching it."},{"start":504.3,"end":506.3,"text":" Thank you for watching it."},{"start":467.9,"end":469.9,"text":" Objects formed from this class."}]
+
+----------------------------------------
+"where comments is taught in this video?"
+User asked this question related to the video chunks, you have to answer in human way (dont mention the above format its just for you) where and how much content is taught where(in which video at what timestamps)and guide the user to go to that particular video . If users ask for unrelated question, reply them you can only ask questions related to the course

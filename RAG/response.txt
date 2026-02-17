@@ -1,0 +1,3 @@
+The comments are discussed in this video. To be more specific, they start talking about comments at around 72 seconds (0:72) and continue until 76 seconds (0:76). 
+
+You can watch the section from 0:72 to 0:76 by pausing the video and it should give you an idea of how to write a comment in Python using the # symbol.
