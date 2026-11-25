@@ -6,7 +6,7 @@ import os
 PACKAGE_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = Path(os.environ.get("RAG_PROJECT_ROOT") or PACKAGE_DIR.parent)
 
-DATA_DIR = PROJECT_ROOT / "data"
+DATA_DIR = Path("/tmp/rag_data") if os.environ.get("VERCEL") else (PROJECT_ROOT / "data")
 UPLOAD_DIR = DATA_DIR / "uploads"
 STORE_PATH = DATA_DIR / "vector_store.joblib"
 STORE_META_PATH = DATA_DIR / "vector_store_meta.json"
