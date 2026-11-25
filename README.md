@@ -1,50 +1,31 @@
-Audio → Searchable Knowledge (Local RAG)
-This project turns long audio lectures into a searchable system where you can ask questions and get answers based only on the lecture content.
+# Video & PDF Local RAG Chatbot
 
-Everything runs locally using Ollama. No external APIs.
+A real-time, 100% local Retrieval-Augmented Generation (RAG) chatbot where any user can upload **Videos** (`.mp4`, `.mov`, `.mkv`, `.avi`, `.webm`), **Audio** (`.mp3`, `.wav`, `.m4a`), **PDFs** (`.pdf`), or **Text/Transcripts** (`.txt`, `.md`, `.json`) and chat with them using **Ollama** and **Whisper**.
 
-What it does :-
-Converts audio to text using Whisper
-Cleans and splits the transcript into chunks
-Creates embeddings using bge-m3
-Stores vectors locally for similarity search
-Retrieves relevant chunks for a question
-Uses a Llama model to generate the final answer
-Simple Streamlit UI for interaction
+## Features
+- **Real-Time Upload & Indexing**: Drag-and-drop videos or PDFs directly in the sidebar with live progress tracking.
+- **Fast Video/Audio Pipeline**: Extracts 16kHz mono audio via `ffmpeg` (`imageio-ffmpeg`), transcribes with Whisper (`mlx-whisper` / `faster-whisper` / `openai-whisper`), and merges short segments into coherent timestamped chunks.
+- **PDF Ingestion**: Extracts text page-by-page using `pypdf` with sentence-aware overlapping chunks and exact page citations.
+- **Efficient Vector Search**: Stores pre-normalized `float32` unit vectors in memory (`data/vector_store.joblib`) for instant cosine similarity via a single matrix-vector dot product, with SHA-256 deduplication and per-document filtering.
+- **Streaming Chatbot**: Multi-turn chat interface with streaming responses from Ollama (`/api/chat`) and expandable source citations (`MM:SS–MM:SS` for videos, `Page X` for PDFs).
 
-Stack :-
-Python
-Whisper
-Ollama (bge-m3, llama3)
-FAISS (vector store)
-Streamlit
+## Quickstart
 
-How it works
-
-Audio file
-→ Transcription
-→ Text chunking
-→ Embeddings
-→ Vector storage
-→ Question
-→ Retrieval
-→ LLM answer
-
-Run locally
-
-Install dependencies:-
+### 1. Install Dependencies
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
+```
 
-
-Pull models:
+### 2. Start Ollama & Pull Models
+```bash
+ollama serve
 ollama pull bge-m3
-ollama pull llama3
+ollama pull llama3.2
+```
 
-
-Ingest data:-
-python ingest.py
-
-
-Start the app:-
+### 3. Run the Chatbot
+```bash
 streamlit run app.py
-
+```
