@@ -47,6 +47,20 @@ A real-time, full-stack **Retrieval-Augmented Generation (RAG)** application tha
 
 ---
 
+## Performance Benchmarks
+
+Measured against the repository's sample lecture dataset (`RAG/embeddings.joblib`, 143 chunks, 1024-dim vectors, averaged over 100 queries):
+
+| Metric | Legacy Implementation | New `rag_engine` | Improvement |
+| :--- | :--- | :--- | :--- |
+| **End-to-end query search** (disk reload + norm + sort vs cached `VectorStore`) | `32.925 ms` | `0.019 ms` | **99.94% faster** (`1,749.8x`) |
+| **In-memory vector math** (`float64` + `norm` + `argsort` vs `float32` dot + `argpartition`) | `0.0584 ms` | `0.0188 ms` | **67.78% faster** (`3.1x`) |
+| **Embedding RAM footprint** (`float64` vs `float32`) | `1,144.0 KB` | `572.0 KB` | **50.0% reduction** |
+| **Persisted store size on disk** (uncompressed vs `compress=3`) | `1,310.5 KB` | `528.1 KB` | **59.7% smaller** |
+| **Transcript chunks to embed** (raw Whisper segments vs merged chunks) | `143 chunks` | `12 chunks` | **91.6% fewer embedding calls** |
+
+---
+
 ## Local Setup & Run
 
 ### 1. Prerequisites
