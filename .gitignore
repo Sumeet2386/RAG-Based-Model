@@ -7,4 +7,6 @@ RAG-Based-Model-main/
 RAG-Based-Model-main.zip
 frontend/node_modules/
 frontend/dist/
+.vercel/
 
+.vercel

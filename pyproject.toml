@@ -1,0 +1,7 @@
+[project]
+name = "rag-based-model"
+version = "1.0.0"
+
+[tool.vercel]
+entrypoint = "backend.main:app"
+

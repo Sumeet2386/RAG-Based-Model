@@ -1,0 +1,13 @@
+.venv
+.git
+.DS_Store
+__pycache__
+*.pyc
+data
+frontend/node_modules
+RAG-Based-Model-main
+RAG-Based-Model-main.zip
+RAG/video
+RAG/audios
+RAG/whisper
+
